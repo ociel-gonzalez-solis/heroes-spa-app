@@ -1,35 +1,19 @@
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
-import { LoginPage } from "../auth/pages/LoginPage";
-import { DCPages, ErrorPage, MarvelPages } from "../heroes/pages";
-import { HeroesApp } from "../HeroesApp";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { LoginPage } from "../auth/pages";
+import { ErrorPage, HeroesRoutes } from "../heroes";
+import { childHeroesRoutes } from "./HeroRouter";
 
 const routesConfig = createBrowserRouter([
   {
-    path: "/",
-    element: <HeroesApp />,
+    path: "login",
+    element: <LoginPage />,
     errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "marvel",
-        element: <MarvelPages />,
-      },
-      {
-        path: "login",
-        element: <LoginPage />,
-      },
-      {
-        path: "dc",
-        element: <DCPages />,
-      },
-      {
-        path: "/*",
-        element: <Navigate to={"/marvel"} />,
-      },
-    ],
+  },
+  {
+    path: "/",
+    element: <HeroesRoutes />,
+    children: childHeroesRoutes,
+    errorElement: <ErrorPage />,
   },
 ]);
 

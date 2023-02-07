@@ -12,11 +12,11 @@ export const childHeroesRoutes = [
     element: <SearchPage />,
   },
   {
-    path: "hero",
+    path: "hero/:id",
     element: <HeroPage />,
   },
   {
-    path: "/*",
+    path: "/",
     element: <Navigate to={"/marvel"} />,
   },
 ];

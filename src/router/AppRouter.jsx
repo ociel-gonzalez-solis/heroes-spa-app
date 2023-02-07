@@ -13,7 +13,7 @@ const routesConfig = createBrowserRouter([
     path: "/",
     element: <HeroesRoutes />,
     children: childHeroesRoutes,
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorPage />,
   },
 ]);
 

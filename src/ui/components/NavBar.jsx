@@ -1,10 +1,12 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../auth/context/AuthContext";
+import { useCustomNavigation } from "../../hooks/useCustomNavigation";
 
 export const NavBar = () => {
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    navigate("/login", { replace: true });
-  };
+  const { handleLogout } = useCustomNavigation();
+  const { user } = useContext(AuthContext);
+
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
       <Link className="navbar-brand" to="/">
@@ -29,14 +31,6 @@ export const NavBar = () => {
             >
               DC
             </NavLink>
-            {/* <NavLink
-              className={({ isActive }) =>
-                `nav-link ${isActive ? "active" : ""}`
-              }
-              to="/hero"
-            >
-              Hero
-            </NavLink> */}
             <NavLink
               className={({ isActive }) =>
                 `nav-link ${isActive ? "active" : ""}`
@@ -45,20 +39,12 @@ export const NavBar = () => {
             >
               Search
             </NavLink>
-            {/* <NavLink
-              className={({ isActive }) =>
-                `nav-link ${isActive ? "active" : ""}`
-              }
-              to="/login"
-            >
-              Login
-            </NavLink> */}
           </ul>
         </div>
       </div>
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nav-item nav-link text-primary">Ozzy</span>
+          <span className="nav-item nav-link text-primary">{user?.name}</span>
           <button className="nav-item nav-link btn" onClick={handleLogout}>
             Logout
           </button>

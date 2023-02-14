@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { useCustomNavigation } from "../../hooks/useCustomNavigation";
 
 export const LoginPage = () => {
-  const navigate = useNavigate();
-  const handleLogin = () => {
-    navigate("/", { replace: true });
-  };
+  const { handleLogin } = useCustomNavigation();
 
   return (
     <div className="container mt-5">

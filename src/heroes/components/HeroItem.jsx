@@ -4,7 +4,7 @@ import { HeroCharacters } from "./HeroCharacters";
 import "animate.css";
 
 export const HeroItem = React.memo(
-  ({ id, superhero, publisher, alter_ego, first_appearance, characters }) => {
+  ({ id, superhero, alter_ego, first_appearance, characters }) => {
     const heroImgUrl = `/assets/heroes/${id}.jpg`;
 
     return (
@@ -31,12 +31,7 @@ export const HeroItem = React.memo(
               </div>
             </div>
           </div>
-          {/* <p>Publisher: {hero.publisher}</p>
-        <p>Alter_ego: {hero.alter_ego}</p>
-        <p>First_appearance: {hero.first_appearance}</p>
-        <p>Characters: {hero.characters}</p> */}
         </div>
-        {/* <hr /> */}
       </>
     );
   }

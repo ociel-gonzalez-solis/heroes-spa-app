@@ -1,12 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useCustomNavigation } from "../../hooks/useCustomNavigation";
 import "animate.css";
 
 export const Hero = React.memo(({ hero, id }) => {
-  const navigate = useNavigate();
-  const goBack = () => {
-    navigate(-1);
-  };
+  const { goBack } = useCustomNavigation();
 
   return (
     <div className="row mt-5 ">

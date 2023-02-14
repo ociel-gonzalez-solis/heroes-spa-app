@@ -35,7 +35,9 @@ export const SearchPage = () => {
               onChange={onInputChange}
             />
 
-            <button className="btn btn-outline-primary mt-1">Search</button>
+            <button type="submit" className="btn btn-outline-primary mt-1">
+              Search
+            </button>
           </form>
         </div>
         <div className="col-7">

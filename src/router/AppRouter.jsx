@@ -5,7 +5,7 @@ import { childHeroesRoutes, PrivateRoute, PublicRoute } from "./";
 
 const routesConfig = createBrowserRouter([
   {
-    path: "login",
+    path: "login/*",
     element: (
       <PublicRoute>
         <LoginPage />

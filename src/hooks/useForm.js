@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export const useForm = (initialForm = {}) => {
   const [formState, setFormState] = useState(initialForm);
-  
+
   const navigate = useNavigate();
   const { searchTxt } = formState;
 
@@ -17,7 +17,6 @@ export const useForm = (initialForm = {}) => {
 
   const onSearchSubmit = (e) => {
     e.preventDefault();
-    // if (searchTxt.trim().length <= 1) return;
     navigate(`?q=${searchTxt.toLowerCase().trim()}`);
   };
 
